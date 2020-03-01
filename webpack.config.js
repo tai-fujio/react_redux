@@ -34,7 +34,7 @@ const publidDir = path.join(__dirname, '/public');
 module.exports = [
   {
     entry: [
-      './src/index.js',
+      './src/index.jsx',
     ],
     output: {
       path: publidDir,
