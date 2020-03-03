@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import SearchForm from './SearchForm';
+import Result from './Result';
 
 class App3 extends Component {
   constructor(props){
@@ -18,6 +19,11 @@ class App3 extends Component {
       <div>
         <h1>緯度経度検索</h1>
         <SearchForm onSubmit={place => this.handlePlaceSubmit(place)}/>
+        <Result
+        address={this.state.address}
+        lat={this.state.lat}
+        lng={this.state.lng}
+        />
       </div>
     );
   };
