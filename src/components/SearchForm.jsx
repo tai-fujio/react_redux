@@ -4,7 +4,7 @@ class SearchForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      place:''
+      place:'テスト'
     };
   };
 
@@ -13,7 +13,7 @@ class SearchForm extends Component {
   };
 
   handleSubmit(e){
-    // e.preventDefault();
+    e.preventDefault();
     this.props.onSubmit(this.state.place);
   }
 

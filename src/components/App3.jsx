@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 import SearchForm from './SearchForm';
 import Result from './Result';
+const ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
 class App3 extends Component {
   constructor(props){
     super(props);
-    this.state={
+    this.state = {
     };
   };
 
   handlePlaceSubmit(place){
-    console.log(place);
-  }
+    axios
+    .get(ENDPOINT, {params: {address: place, key: process.env.API_KEY}})
+    .then((results) => {
+      console.log(results);
+    });
+  };
 
   render(){
     return(

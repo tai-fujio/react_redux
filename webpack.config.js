@@ -28,14 +28,21 @@
 // };
 
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
- 
 const publidDir = path.join(__dirname, '/public');
 module.exports = [
   {
+    plugins: [
+      new Dotenv(),
+    ],
     entry: [
       './src/index.jsx',
     ],
+    node: {
+      fs: "empty"
+    },
+    // target: 'node',
     output: {
       path: publidDir,
       publicPath: '/',
