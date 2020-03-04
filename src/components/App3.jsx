@@ -12,11 +12,40 @@ class App3 extends Component {
     };
   };
 
+  setErrorMessage(message){
+    this.setState({
+      address: message,
+      lat: 0,
+      lng: 0
+    })
+  }
   handlePlaceSubmit(place){
     axios
     .get(ENDPOINT, {params: {address: place, key: process.env.API_KEY}})
     .then((results) => {
-      console.log(results);
+      const result = results.data.results[0];
+      const data = results.data;
+      switch(data.status){
+        case 'OK': {
+          const location = result.geometry.location;
+          this.setState({
+            address:result.formatted_address,
+            lat: location.lat,
+            lng: location.lng,
+          });
+          break;
+        }
+        case 'ZERO_RESULTS': {
+          this.setErrorMessage('データがありません')
+          break;
+        };
+        default:{
+          this.setErrorMessage('エラーが発生しました')
+        };
+      };
+    })
+    .catch(( => {
+      this.setErrorMessage('ネットワークがありません');
     });
   };
 

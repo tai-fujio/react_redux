@@ -2,9 +2,9 @@ import React, {PropTypes} from 'react';
 
 const Result = ({address,lat,lng}) => (
   <ul className = "result">
-    <li>住所:{address}</li>
-    <li>緯度:{lat}</li>
-    <li>経度:{lng}</li>
+    <li>住所: {address}</li>
+    <li>緯度: {lat}</li>
+    <li>経度: {lng}</li>
   </ul>
 );
 
