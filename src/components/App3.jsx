@@ -44,7 +44,7 @@ class App3 extends Component {
         };
       };
     })
-    .catch(( => {
+    .catch(() => {
       this.setErrorMessage('ネットワークがありません');
     });
   };
